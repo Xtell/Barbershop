@@ -2,17 +2,74 @@ var link = document.querySelector(".login-link");
 var popup = document.querySelector(".modal-login");
 var close = document.querySelector(".modal-close");
 var overlay = document.querySelector(".modal-overlay");
+var login = popup.querySelector("#user-login");
+var password = popup.querySelector("#user-password");
+var form = popup.querySelector("form");
+var menu_items = document.querySelectorAll('a[href^="#"]');
+console.log(menu_items);
+var isStorageSupport = true;
+function closeModal(popup, overlay) {
+    popup.classList.remove("modal-show");
+    overlay.classList.remove("modal-overlay-show");
+    if (popup.classList.contains("modal-error")) {
+        popup.classList.remove("modal-error");
+    }
+}
+try {
+    var storage = localStorage.getItem("name");
+}
+catch(err) {
+    isStorageSupport = false;
+}
 
 link.addEventListener('click', function (evt) {
     evt.preventDefault();
     popup.classList.add("modal-show");
-    overlay.classList.add("modal-show")
+    overlay.classList.add("modal-overlay-show");
+    if (storage) {
+        login.value = storage;
+        password.focus();
+    }
+    else {
+        login.focus();
+    }
+    
 });
 close.addEventListener('click', function(evt) {
-    evt.preventDefault();
-    popup.classList.remove("modal-show");
+    closeModal(popup, overlay);
 });
 overlay.addEventListener("click", function(evt) {
-    popup.classList.remove("modal-show");
-    overlay.classList.remove("modal-show");
+    closeModal(popup, overlay);
 });
+form.addEventListener("submit", function(evt) {
+
+    if (login.value === "" || password.value === ""){
+        evt.preventDefault();
+        if (popup.classList.contains("modal-error")) {
+            popup.classList.remove("modal-error");
+            void popup.offsetWidth;
+           
+        }
+        popup.classList.add("modal-error");
+        
+    }
+    else {
+        if (popup.classList.contains("modal-error")) {
+            popup.classList.remove("modal-error");
+        }
+        if (isStorageSupport) {
+            localStorage.setItem("name", login.value);
+        }
+        
+    }
+});
+// smooth scrolling to element 
+for (var i = 0; i < menu_items.length; i++) {
+    menu_items[i].addEventListener('click', function(evt) {
+        evt.preventDefault();
+        console.log(menu_items[i]);
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+}

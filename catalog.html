@@ -17,11 +17,11 @@
                 <img src="img/logo.svg" width="111" height="24" alt="Логотип барбершопа 'Бородинский'">
             </a>
                 <ul class="site-navigation">
-                    <li><a href="index.html">Информация</a></li>
-                    <li><a href="index.html">Новости</a></li>
+                    <li><a href="index.html#info">Информация</a></li>
+                    <li><a href="index.html#news">Новости</a></li>
                     <li><a href="price.html">Прайс-лист</a></li>
-                    <li class="site-navigation-current"></li>
-                    <li><a href="contacts.html">Контакты</a></li>
+                    <li class="site-navigation-current"><a>Магазин</a></li>
+                    <li><a href="index.html#contacts">Контакты</a></li>
                 </ul>
                 <ul class="user-navigation">
                     <li><a href="" class="login-link">Войти</a></li>
@@ -227,10 +227,11 @@
         </div>
 
     </footer>
-    <!-- <section class="modal modal-user">
+    <section class="modal modal-login">
+
         <h2>Личный кабинет</h2>
-        <p>Введите пожайлуста свой логин и пароль</p>
-        <form action="#" class="login-form">
+        <p class="modal-description">Введите пожайлуста свой логин и пароль</p>
+        <form action="https://htmlacademy.ru/echo" class="login-form">
             <p class="login-item">
                 <label for="user-login" class="visually-hidden">Логин</label>
                 <input class="login-icon-user" type="text" name="login" id="user-login" placeholder="Логин">
@@ -241,7 +242,7 @@
             </p>
             <p class="login-info"> 
                 <label class="login-checkbox">
-                <input type="checkbox" name="remember"  class="visually-hidden" checked>
+                <input type="checkbox" name="remember"  class="visually-hidden" >
                 <span class="checkbox-indicator"></span>    
                 Запомните меня
                 </label>
@@ -249,15 +250,11 @@
             </p>
             <button type="submit" class="button">Войти</button>
         </form>
-        <button class="modal-close" type="button">Закрыть</button>
+        <button class="modal-close" type="button"><span class="visually-hidden">Закрыть</span> </button>
     </section>
-    <section class="modal modal-map">
-        <h2 class="visually-hidden">Как до нас добраться</h2>
-        <p>
-            <img src="img/map.jpg" width="780" height="560" alt="Офис компании по адресу ул.">
-        </p>
-
-        <button class="modal-close" type="button">Закрыть</button>
-    </section> -->
+    <div class="modal-overlay">
+        
+    </div>
+    <script src="scripts/scripts.js"></script>
 </body>
 </html>

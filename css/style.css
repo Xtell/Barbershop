@@ -54,9 +54,7 @@ img {
     max-width: 100%;
     height: auto;
 }
-*:focus {
-    outline: none;
-}
+
 .visually-hidden {
     position: absolute;
 
@@ -539,6 +537,12 @@ img {
     animation-name: shake;
     animation-delay: 0.6s;
 }
+.modal-map {
+    width: 780px;
+    top: 120px;
+    left: 50%;
+    margin-left: -390px;
+}
 .login-form input:focus {
     border-color: #663d15;
 }
@@ -583,8 +587,8 @@ img {
     position: absolute;
     left: 0;
     top: 0;
-    width: 17px;
-    height: 17px;
+    width: 16px;
+    height: 16px;
     border: 2px solid #000000;
 }
 
@@ -592,9 +596,9 @@ img {
 .login-checkbox input[type="checkbox"]:checked + .checkbox-indicator::after {
     content: "";
     position: absolute;
-    top: 8px;
+    top: 7px;
     left: 1px;
-    width: 15px;
+    width: 14px;
     height: 2px;
     background-color: #000000;
 
@@ -959,6 +963,7 @@ img {
 }
 .site-navigation-current {
     position: relative;
+    background-color: #141414;
 }
 .site-navigation-current::after {
     content: "";
@@ -968,6 +973,12 @@ img {
     right: 20px;
     height: 5px;
     background-color: #fff;
+}
+.site-navigation-current a:not([href]):hover {
+    background-color: #141414;
+}
+.site-navigation-current a[href] {
+    text-decoration: underline;
 }
 .catalog {
     width: 700px;

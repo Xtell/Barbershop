@@ -6,7 +6,8 @@ var login = popup.querySelector("#user-login");
 var password = popup.querySelector("#user-password");
 var form = popup.querySelector("form");
 var menu_items = document.querySelectorAll('a[href^="#"]');
-console.log(menu_items);
+var map_link = document.querySelector(".button-map");
+var map_popup = document.querySelector(".modal-map");
 var isStorageSupport = true;
 function closeModal(popup, overlay) {
     popup.classList.remove("modal-show");

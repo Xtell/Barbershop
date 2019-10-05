@@ -6,9 +6,12 @@ var login = popup.querySelector("#user-login");
 var password = popup.querySelector("#user-password");
 var form = popup.querySelector("form");
 var menu_items = document.querySelectorAll('a[href^="#"]');
-var map_link = document.querySelector(".button-map");
-var map_popup = document.querySelector(".modal-map");
+var mapLink = document.querySelector(".button-map");
+var mapPopup = document.querySelector(".modal-map");
+var modalMapClose = mapPopup.querySelector(".modal-close");
+console.log(modalMapClose);
 var isStorageSupport = true;
+
 function closeModal(popup, overlay) {
     popup.classList.remove("modal-show");
     overlay.classList.remove("modal-overlay-show");
@@ -22,8 +25,18 @@ try {
 catch(err) {
     isStorageSupport = false;
 }
+mapLink.addEventListener('click', function(evt){
+    evt.preventDefault();
+    mapPopup.classList.add("modal-show");
+    overlay.classList.add("modal-overlay-show");
+});
+modalMapClose.addEventListener('click', function(evt) {
 
-link.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    closeModal(mapPopup, overlay);
+
+});
+link.addEventListener('click', function(evt) {
     evt.preventDefault();
     popup.classList.add("modal-show");
     overlay.classList.add("modal-overlay-show");
